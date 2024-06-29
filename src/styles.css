@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Garamond";
+    src: url("./assets/fonts/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 500;
+}
+
+:root{
+    --background-green: #0e1f0b;
+    --font-white: #fbfdfb;
+    font-size: 16px;
+}
+
+body{
+    padding: 26px 38px;
+    background-color: var(--background-green);
+    font-family: Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #fbfdfb;
+}
+
+p{
+    margin: 0;
+}
+
+button{
+    appearance: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: var(--font-white);
+    background-color: inherit;
+    border: none;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.flex-header{
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    justify-content: space-between;
+}
+
+.flex-header > * {
+    letter-spacing: 4px;
+}
+
+.grow{
+    flex-grow: 1;
+}
+
+.logo{
+    font-family: "Garamond", serif;
+    font-size: 2rem;
+    font-weight: 400;
+}
