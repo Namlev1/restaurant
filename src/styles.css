@@ -1,19 +1,26 @@
 @font-face {
-    font-family: "Garamond";
+    font-family: "Garamond Italics";
     src: url("./assets/fonts/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "Garamond";
+    src: url("./assets/fonts/EBGaramond-VariableFont_wght.ttf") format("truetype");
     font-weight: 500;
 }
 
 :root{
     --background-green: #0e1f0b;
     --font-white: #fbfdfb;
+    --font-stack: Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
 }
 
 body{
-    padding: 26px 38px;
+    padding: 0;
     background-color: var(--background-green);
-    font-family: Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: var(--font-stack), serif;
     color: #fbfdfb;
 }
 
@@ -35,6 +42,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 26px 38px;
 }
 
 .underline{
@@ -57,7 +65,37 @@ header{
 }
 
 .logo{
-    font-family: "Garamond", serif;
+    font-family: "Garamond Italics", var(--font-stack), serif;
     font-size: 2rem;
     font-weight: 400;
+}
+
+#content{
+}
+
+#hero {
+    position: relative;
+    padding: 6rem 18rem;
+}
+
+h1{
+    font-family: "Garamond", var(--font-stack), serif;
+    font-size: 8rem;
+    margin: 0 0;
+    font-weight: 100;
+}
+
+#hero-img-container {
+    width: 1100px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -2;
+}
+
+#hero-img-container img{
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
 }
