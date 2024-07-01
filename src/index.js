@@ -1,15 +1,6 @@
 import './styles.css'
-import Hero from './hero.jpg'
 import TickIcon from './assets/svg/tick.svg'
-
-const hero = document.querySelector('#hero');
-const imgContainer = document.createElement('div');
-imgContainer.id = ('hero-img-container');
-const img = document.createElement('img')
-img.src = Hero;
-img.alt = "Food picture"
-imgContainer.appendChild(img)
-hero.appendChild(imgContainer);
+import heroPage from './home'
 
 const style = document.createElement('style');
 style.innerHTML = `
@@ -30,3 +21,4 @@ style.innerHTML = `
 document.head.appendChild(style);
 
 console.log('loggin\'');
+heroPage();
