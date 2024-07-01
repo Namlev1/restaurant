@@ -1,21 +1,25 @@
 import Hero from "./hero.jpg";
+import {
+    createDate,
+    createDiv,
+    createForm,
+    createH1,
+    createH2,
+    createP,
+    createSelect,
+    createTime
+} from "./utils";
 
 const body = document.body;
 const content = document.querySelector('#content');
 
-export default function homePage() {
+function createHeroDiv() {
     const heroDiv = document.createElement('div')
     heroDiv.id = 'hero';
-    const textDiv = document.createElement('div')
-    textDiv.classList.add('hero-text');
-    const ambient = document.createElement('p')
-    ambient.classList.add('bold-font')
-    ambient.textContent = 'AMBIENT';
-    const h2 = document.createElement('h1')
-    h2.textContent = 'Fine Dining';
-    const description = document.createElement('p')
-    description.classList.add('description')
-    description.textContent = 'Benvenuti a La Dolce Vita, dove la cucina italiana autentica incontra un\'atmosfera elegante e accogliente. Godetevi piatti raffinati preparati con ingredienti freschi e di qualità.';
+    const textDiv = createDiv('hero-text')
+    const ambient = createP('bold-font', 'AMBIENT')
+    const h1 = createH1('Fine Dining')
+    const description = createP('description','Benvenuti a La Dolce Vita, dove la cucina italiana autentica incontra un\'atmosfera elegante e accogliente. Godetevi piatti raffinati preparati con ingredienti freschi e di qualità.')
 
     const imgContainer = document.createElement('div');
     imgContainer.id = ('hero-img-container');
@@ -25,9 +29,58 @@ export default function homePage() {
 
     imgContainer.appendChild(img)
     textDiv.appendChild(ambient);
-    textDiv.appendChild(h2);
+    textDiv.appendChild(h1);
     textDiv.appendChild(description);
     heroDiv.appendChild(textDiv);
     heroDiv.appendChild(imgContainer)
+    return heroDiv;
+}
+
+function createSubmitBtn() {
+    const button = document.createElement('button');
+    button.type = 'submit';
+    button.className = 'gold-btn';
+    const span1 = document.createElement('span');
+    span1.style.color = '#c2a779';
+    span1.textContent = '◆';
+    button.appendChild(span1);
+    button.appendChild(document.createTextNode('SUBMIT'));
+    const span2 = document.createElement('span');
+    span2.style.color = '#c2a779';
+    span2.textContent = '◆';
+    button.appendChild(span2);
+    return button;
+}
+
+export default function homePage() {
+    const heroDiv = createHeroDiv();
     body.insertBefore(heroDiv, content)
+
+    const form = createForm('booking')
+    const h2 = createH2('Book a table')
+    const peopleInputWrap = createDiv('input-wrap')
+    const peopleOpt = {
+        1: '1 Person',
+        2: '2 People',
+        3: '3 People',
+        4: '4 People',
+        5: '5 People',
+        6: '6 People'
+    }
+    const peopleInput = createSelect('people', 'people', peopleOpt);
+    peopleInputWrap.appendChild(peopleInput)
+    const dateInputWrap = createDiv('input-wrap')
+    const dateInput = createDate('date')
+    dateInputWrap.appendChild(dateInput)
+    const timeInputWrap = createDiv('input-wrap')
+    const timeInput = createTime('time', 'time')
+    timeInputWrap.appendChild(timeInput)
+    const submitBtn = createSubmitBtn();
+
+    form.appendChild(h2)
+    form.appendChild(peopleInputWrap)
+    form.appendChild(dateInputWrap)
+    form.appendChild(timeInputWrap)
+    form.appendChild(submitBtn)
+    content.appendChild(form)
 }
