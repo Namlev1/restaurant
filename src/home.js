@@ -10,9 +10,6 @@ import {
     createTime
 } from "./utils";
 
-const body = document.body;
-const content = document.querySelector('#content');
-
 function createHeroDiv() {
     const heroDiv = document.createElement('div')
     heroDiv.id = 'hero';
@@ -52,12 +49,10 @@ function createSubmitBtn() {
     return button;
 }
 
-export default function homePage() {
-    const heroDiv = createHeroDiv();
-    body.insertBefore(heroDiv, content)
-
+function createBooking() {
     const form = createForm('booking')
     const h2 = createH2('Book a table')
+
     const peopleInputWrap = createDiv('input-wrap')
     const peopleOpt = {
         1: '1 Person',
@@ -69,12 +64,15 @@ export default function homePage() {
     }
     const peopleInput = createSelect('people', 'people', peopleOpt);
     peopleInputWrap.appendChild(peopleInput)
+
     const dateInputWrap = createDiv('input-wrap')
     const dateInput = createDate('date')
     dateInputWrap.appendChild(dateInput)
+
     const timeInputWrap = createDiv('input-wrap')
     const timeInput = createTime('time', 'time')
     timeInputWrap.appendChild(timeInput)
+
     const submitBtn = createSubmitBtn();
 
     form.appendChild(h2)
@@ -82,5 +80,15 @@ export default function homePage() {
     form.appendChild(dateInputWrap)
     form.appendChild(timeInputWrap)
     form.appendChild(submitBtn)
-    content.appendChild(form)
+    return form;
+}
+
+const body = document.body;
+const content = document.querySelector('#content');
+
+export default function homePage() {
+    const heroDiv = createHeroDiv();
+    body.insertBefore(heroDiv, content)
+    const booking = createBooking();
+    content.appendChild(booking)
 }
