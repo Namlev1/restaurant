@@ -1,5 +1,6 @@
 import './styles.css'
 import homePage from './home'
+import menuPage from "./menu";
 
 const header = document.querySelector('header')
 const content = document.querySelector('#content')
@@ -23,8 +24,11 @@ homeBtn.addEventListener('click', () => {
 
 menuBtn.addEventListener('click', () => {
     clearPage();
+    menuPage();
 });
 
 aboutBtn.addEventListener('click', () => {
     clearPage();
 });
+
+menuPage()

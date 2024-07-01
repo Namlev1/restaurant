@@ -7,7 +7,8 @@ export function createP(className, text){
 
 export function createDiv(className){
     const div = document.createElement('div');
-    div.classList.add(className)
+    if (className)
+        div.classList.add(className)
     return div;
 }
 
@@ -27,6 +28,12 @@ export function createH2(text){
     const h2 = document.createElement('h2');
     h2.textContent = text;
     return h2;
+}
+
+export function createH3(text){
+    const h3 = document.createElement('h3');
+    h3.textContent = text;
+    return h3;
 }
 
 export function createSelect(name, id, options){
