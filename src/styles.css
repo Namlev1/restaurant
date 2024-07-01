@@ -100,7 +100,7 @@ header {
 }
 
 #content {
-    padding: 6rem 19rem 0;
+    padding: 5.8rem 19rem;
 }
 
 #hero {
@@ -192,15 +192,42 @@ header {
 #menu-grid{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 3rem;
 }
 
 .menu-element{
     width: 100%;
-    height: 100%;
+    height: 500px;
+    display: grid;
+    grid-template-rows: 200px auto 150px auto;
+    border: 1px solid #273824;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
 .menu-element > img{
     width: 100%;
-    height: 100%;
+    height: auto;
+    align-self: end;
+    justify-self: center;
+}
+
+.menu-element > h3{
+    margin-top: 1rem;
+}
+
+.menu-element > .description{
+    line-height: 1.5;
+    margin: 1rem 0 1rem;
+}
+
+.price{
+    font-size: 1.5rem;
+    font-family: "Garamond", var(--font-stack), serif;
+    text-align: end;
+    margin-right: 2rem;
+}
+
+.menu-element > .small-img{
+    width: 250px;
 }

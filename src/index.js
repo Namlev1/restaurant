@@ -31,4 +31,4 @@ aboutBtn.addEventListener('click', () => {
     clearPage();
 });
 
-menuPage()
+homePage()
