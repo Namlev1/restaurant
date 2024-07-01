@@ -1,24 +1,30 @@
 import './styles.css'
-import TickIcon from './assets/svg/tick.svg'
-import heroPage from './home'
+import homePage from './home'
 
-const style = document.createElement('style');
-style.innerHTML = `
-  .input-wrap::after {
-    content: '';
-    background-image: url('${TickIcon}');
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 1.2rem;
-    height: 1.2rem;
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    pointer-events: none; /* Allow clicks to pass through */
-  }
-`;
-document.head.appendChild(style);
+const header = document.querySelector('header')
+const content = document.querySelector('#content')
 
-console.log('loggin\'');
-heroPage();
+const homeBtn = document.querySelector('#home-btn')
+const menuBtn = document.querySelector('#menu-btn')
+const aboutBtn = document.querySelector('#about-btn')
+
+function clearPage() {
+    const hero = document.querySelector('#hero')
+    if (hero)
+        hero.remove();
+    while(content.firstChild)
+        content.removeChild(content.firstChild);
+}
+
+homeBtn.addEventListener('click', () => {
+    clearPage();
+    homePage()
+});
+
+menuBtn.addEventListener('click', () => {
+    clearPage();
+});
+
+aboutBtn.addEventListener('click', () => {
+    clearPage();
+});

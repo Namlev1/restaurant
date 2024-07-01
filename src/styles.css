@@ -41,6 +41,7 @@ button {
     color: var(--font-white);
     background-color: inherit;
     border: none;
+    cursor: pointer;
 }
 
 h1, h2 {

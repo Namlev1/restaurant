@@ -9,6 +9,25 @@ import {
     createSelect,
     createTime
 } from "./utils";
+import TickIcon from "./assets/svg/tick.svg";
+
+const style = document.createElement('style');
+style.innerHTML = `
+  .input-wrap::after {
+    content: '';
+    background-image: url('${TickIcon}');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 1.2rem;
+    height: 1.2rem;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allow clicks to pass through */
+  }
+`;
+document.head.appendChild(style);
 
 function createHeroDiv() {
     const heroDiv = document.createElement('div')
@@ -39,12 +58,12 @@ function createSubmitBtn() {
     button.className = 'gold-btn';
     const span1 = document.createElement('span');
     span1.style.color = '#c2a779';
-    span1.textContent = '◆';
+    span1.textContent = '◆ ';
     button.appendChild(span1);
     button.appendChild(document.createTextNode('SUBMIT'));
     const span2 = document.createElement('span');
     span2.style.color = '#c2a779';
-    span2.textContent = '◆';
+    span2.textContent = ' ◆';
     button.appendChild(span2);
     return button;
 }
