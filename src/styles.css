@@ -10,25 +10,30 @@
     font-weight: 500;
 }
 
-:root{
+:root {
     --background-green: #0e1f0b;
     --font-white: #fbfdfb;
+    --gold: #9b773d;
+    --gold-light: #c2a779;
     --font-stack: Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     font-size: 16px;
 }
 
-body{
+body {
     padding: 0;
+    margin: 0;
     background-color: var(--background-green);
     font-family: var(--font-stack), serif;
     color: #fbfdfb;
 }
 
-p{
+p {
     margin: 0;
+    max-width: 60ch;
+    line-height: 2;
 }
 
-button{
+button {
     appearance: none;
     font-size: 1rem;
     font-weight: 600;
@@ -38,18 +43,41 @@ button{
     border: none;
 }
 
-header{
+h1, h2 {
+    font-family: "Garamond", var(--font-stack), serif;
+    margin: 0 0;
+    font-weight: 100;
+}
+
+h1 {
+    font-size: 8rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 26px 38px;
 }
 
-.underline{
+.underline {
     text-decoration: underline;
 }
 
-.flex-header{
+.grow {
+    flex-grow: 1;
+}
+
+.bold-font {
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.flex-header {
     display: flex;
     align-items: center;
     gap: 4rem;
@@ -60,33 +88,24 @@ header{
     letter-spacing: 4px;
 }
 
-.grow{
-    flex-grow: 1;
-}
-
-.logo{
+.logo {
     font-family: "Garamond Italics", var(--font-stack), serif;
     font-size: 2rem;
     font-weight: 400;
 }
 
-#content{
+#content {
+    padding: 6rem 19rem 0;
 }
 
 #hero {
     position: relative;
-    padding: 6rem 18rem;
-}
-
-h1{
-    font-family: "Garamond", var(--font-stack), serif;
-    font-size: 8rem;
-    margin: 0 0;
-    font-weight: 100;
+    padding: 6rem 19rem;
+    height: 508px;
 }
 
 #hero-img-container {
-    width: 1100px;
+    width: 1575px;
     overflow: hidden;
     position: absolute;
     top: 0;
@@ -94,8 +113,73 @@ h1{
     z-index: -2;
 }
 
-#hero-img-container img{
-    height: 600px;
+#hero-img-container img {
+    height: 700px;
     width: 100%;
     object-fit: cover;
+}
+
+.description {
+    opacity: 0.6;
+    font-size: 1.4rem;
+}
+
+.booking {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto repeat(4, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+.input-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #273824;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-wrap > * {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: var(--font-stack), serif;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    color: var(--font-white);
+    background-color: var(--background-green);
+    box-sizing: border-box;
+    position: relative;
+}
+
+.input-wrap::after {
+    content: '⌄';
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+.input-wrap > input[type="date"]::-webkit-calendar-picker-indicator,
+.input-wrap > input[type="time"]::-webkit-calendar-picker-indicator {
+    opacity: 0; /* Hide the default calendar/time icon */
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.gold-btn {
+    background-color: var(--gold);
+    height: 100%;
+    position: relative;
 }
