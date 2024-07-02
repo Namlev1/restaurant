@@ -1,8 +1,8 @@
 import './styles.css'
 import homePage from './home'
 import menuPage from "./menu";
+import aboutPage from "./about";
 
-const header = document.querySelector('header')
 const content = document.querySelector('#content')
 
 const homeBtn = document.querySelector('#home-btn')
@@ -29,6 +29,7 @@ menuBtn.addEventListener('click', () => {
 
 aboutBtn.addEventListener('click', () => {
     clearPage();
+    aboutPage();
 });
 
 homePage()
